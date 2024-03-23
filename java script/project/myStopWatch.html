@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="h">0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <span id="m">0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <span id="s">0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" id="start">Start</button>
+    <button type="button" id="stop">Stop</button>
+
+</body>
+<script>
+
+    let start = document.querySelector('#start')
+    let Stop = document.querySelector('#stop')
+
+    let h = document.querySelector('#h')
+    let m = document.querySelector('#m')
+    let s = document.querySelector('#s')
+    let change;
+
+    start.addEventListener('click',()=>{
+        change = setInterval(()=>{
+            m.innerHTML = +m.innerHTML + 1;
+            
+    },60000)
+        change = setInterval(()=>{
+            s.innerHTML = +s.innerHTML + 1;
+            
+    },1000)
+
+        change = setInterval(()=>{
+            h.innerHTML = +h.innerHTML + 1;
+            
+    },3600000)
+
+    })
+
+    Stop.addEventListener('click',()=>{
+        m.innerHTML=0
+        s.innerHTML=0
+        h.innerHTML=0
+            clearTimeout(change)
+    })
+
+   
+
+</script>
+</html>

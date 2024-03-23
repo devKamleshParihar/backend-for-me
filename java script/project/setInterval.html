@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hii kamlesh</h1>
+    <button type="button" id="start">Start</button>
+    <button type="button" id="stop">Stop</button>
+
+</body>
+<script>
+    let start = document.querySelector('#start')
+    let Stop = document.querySelector('#stop')
+    let change;
+
+    start.addEventListener('click',()=>{
+        change = setInterval(()=>{
+        console.log('kamlesh')
+    },1000);
+
+    })
+
+    Stop.addEventListener('click',()=>{
+            clearTimeout(change)
+    })
+
+   
+
+</script>
+</html>

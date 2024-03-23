@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            height: 100px;
+            width: 100px;
+            text-align: center;
+            border: 2px solid rgb(150, 106, 25);
+            margin:10px;
+            padding:40px 0px 0px 0px;
+            box-sizing: border-box;
+            font-size: 20px;
+            
+        }
+        .yellow{
+            background-color: yellow;   
+        }
+        button{
+            background-color: red;   
+        }
+        .blue{
+            background-color: rgba(0, 30, 255, 0.895);   
+        }
+        .green{
+            background-color: green;   
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="red">Red</div> -->
+    <button class="red">Red</button>
+    <button class="blue">Blue</button>
+    <button class="green">Green</button>
+    <button class="yellow">Yellow</button>
+</body>
+<script>
+   let red =  document.querySelector('.red')
+   let blue =  document.querySelector('.blue')
+   let yellow =  document.querySelector('.yellow')
+   let green =  document.querySelector('.green')
+
+   function redColor(){
+    document.body.style.backgroundColor = red.className;
+   }
+   function blueColor(){
+    document.body.style.backgroundColor = blue.className;
+   }
+   function greenColor(){
+    document.body.style.backgroundColor = green.className;
+   }
+   function yellowColor(){
+    document.body.style.backgroundColor = yellow.className;
+   }
+   red.addEventListener('click',redColor)
+   blue.addEventListener('click',blueColor)
+   green.addEventListener('click',greenColor)
+   yellow.addEventListener('click',yellowColor)
+//    redColor();
+//    console.log(red);
+</script>
+</html>

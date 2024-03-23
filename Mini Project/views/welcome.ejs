@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Mini</title>
+</head>
+
+<body>
+    <div>
+        <form action="/" method="post">
+            <input type="text">
+            <button id="btn">Submit</button>
+            <ul>
+            </ul>
+        </form>
+        <button type="button" id="getDataBtn">Get Data from Server</button>
+
+    </div>
+</body>
+<script>
+    const ul = document.querySelector('ul')
+    const btn = document.querySelector('#btn')
+    const input = document.querySelector('input')
+    const form = document.querySelector('form')
+    const getDataBtn = document.getElementById('getDataBtn');
+
+    function showData(data){
+        const li = document.createElement('li')
+        ul.appendChild(li)
+        const res = JSON.stringify(data)
+        for (const key in res) {
+            
+            li.innerHTML = res
+        }
+    }
+
+    
+    form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const value = input.value;
+
+            try {
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ data: value })
+                });
+
+                if (response.ok) {
+                    console.log('Data sent successfully');
+                } else {
+                    console.error('Failed to send data');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+        getDataBtn.addEventListener('click', async () => {
+            try {
+                const response = await fetch('/getData');
+                if (response.ok) {
+                    const data = await response.json();
+                    showData(data)
+                    console.log('Data from server:', data);
+                } else {
+                    console.error('Failed to get data from server');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+</script>
+
+</html>

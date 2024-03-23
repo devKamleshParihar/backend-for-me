@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="start" value="">start</button>
+    <button id="stop" value="">stop</button>
+</body>
+<script>
+    let Stop = document.querySelector('#stop')
+    let start = document.querySelector('#start')
+    const body = document.querySelector('body')
+    let change;
+
+    let randomNumber=()=>{
+        String(Math.floor(Math.random() * 10))
+    }
+
+
+    start.addEventListener('click', () => {
+
+        change = setInterval(() => {
+            let rr = String(Math.floor(Math.random() * 10))
+            let r = String(Math.floor(Math.random() * 10))
+            let g = String(Math.floor(Math.random() * 10))
+            let gg = String(Math.floor(Math.random() * 10))
+            let b = String(Math.floor(Math.random() * 10))
+            let bb = String(Math.floor(Math.random() * 10))
+            body.style.backgroundColor = `#${r}${rr}${g}${gg}${b}${bb}`
+        }, 1000)
+    })
+    Stop.addEventListener('click',()=>{
+        clearInterval(change)
+    })
+
+
+
+
+</script>
+
+</html>
